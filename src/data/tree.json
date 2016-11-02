@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Node 1",
+        "idParent": -1,
+        "sheet": true
+    },
+    {
+        "id": 2,
+        "name": "Node 2",
+        "idParent": -1,
+        "sheet": true
+    },
+    {
+        "id": 3,
+        "name": "Node 3",
+        "idParent": -1,
+        "sheet": true
+    }
+]
