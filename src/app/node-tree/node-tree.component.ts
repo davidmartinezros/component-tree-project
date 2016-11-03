@@ -11,7 +11,11 @@ export class NodeTreeComponent implements OnInit {
 
   @Input() node: Node;
 
-  @Input() last: boolean;
+  @Input() lastNode: boolean;
+
+  @Input() lastParentNode: boolean;
+
+  @Input() countParents: number;
 
   constructor() { }
 
@@ -20,6 +24,10 @@ export class NodeTreeComponent implements OnInit {
 
   clickExpandCollapse() {
     this.node.expand = !this.node.expand;
+  }
+
+  getNumber(num: number) {
+    return new Array(num);   
   }
 
 }

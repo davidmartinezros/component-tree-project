@@ -1,12 +1,6 @@
-<div *ngFor="let node of tree | async; let i of index">
-  <app-node-tree [node]="node" [last]="i == tree.length"></app-node-tree>
-  <div *ngIf="!node.sheet">
-    <div *ngIf="node.expand" style="padding-left:10px">
-      <div *ngFor="let child of node.childs; let j of index">
-        <app-node-tree [node]="child" [last]="j == node.childs.length"></app-node-tree>
-      </div>
-    </div>
-  </div> 
+<div *ngFor="let node of tree | async; let lastParentNode = last">
+  <app-node-tree [node]="node" [lastParentNode]="true" [countParents]="0" [lastNode]="lastParentNode"></app-node-tree>
+  
   <!--
       haure de fer algo aixi 
       <app-node-tree [node]="node" [lastParentNode]="lastParentNode" [lastNode]="lastNode"></app-node-tree>
