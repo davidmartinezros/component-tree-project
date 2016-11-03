@@ -1,3 +1,8 @@
-<div *ngFor="let node of tree | async">
-    <app-node-tree [node]="node"></app-node-tree> 
+<div *ngFor="let node of tree | async; let lastParentNode = last">
+    <app-node-tree [node]="node"></app-node-tree>
+    <!--
+        haure de fer algo aixi 
+        <app-node-tree [node]="node" [lastParentNode]="lastParentNode" [lastNode]="lastNode"></app-node-tree> 
+    -->
+    <div>isLastParentNode={{lastParentNode}}</div> 
 </div>
