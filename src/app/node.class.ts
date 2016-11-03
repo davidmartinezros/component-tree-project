@@ -3,4 +3,8 @@ export class Node {
     name: string;
     idParent: number;
     sheet: boolean;
+
+    childs: Node[];
+
+    expand: boolean = false;
 }

@@ -3,7 +3,16 @@
         "id": 1,
         "name": "Node 1",
         "idParent": -1,
-        "sheet": true
+        "sheet": false,
+        "childs":
+            [
+                {
+                    "id": 11,
+                    "name": "Node 11",
+                    "idParent": 1,
+                    "sheet": true
+                }
+            ]
     },
     {
         "id": 2,

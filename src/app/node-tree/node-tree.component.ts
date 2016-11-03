@@ -11,9 +11,15 @@ export class NodeTreeComponent implements OnInit {
 
   @Input() node: Node;
 
+  @Input() last: boolean;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  clickExpandCollapse() {
+    this.node.expand = !this.node.expand;
   }
 
 }

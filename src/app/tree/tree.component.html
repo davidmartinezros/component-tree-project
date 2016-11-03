@@ -1,3 +1,10 @@
-<div *ngFor="let node of tree | async">
-    <app-node-tree [node]="node"></app-node-tree> 
+<div *ngFor="let node of tree | async; let i of index">
+  <app-node-tree [node]="node" [last]="i == tree.length"></app-node-tree>
+  <div *ngIf="!node.sheet">
+    <div *ngIf="node.expand" style="padding-left:10px">
+      <div *ngFor="let child of node.childs; let j of index">
+        <app-node-tree [node]="child" [last]="j == node.childs.length"></app-node-tree>
+      </div>
+    </div>
+  </div> 
 </div>
