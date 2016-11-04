@@ -11,23 +11,26 @@ export class NodeTreeComponent implements OnInit {
 
   @Input() node: Node;
 
-  @Input() lastNode: boolean;
+  @Input() parents: Node[];
 
-  @Input() lastParentNode: boolean;
+  @Input() lastNode;
 
-  @Input() countParents: number;
+  @Input() lastParentNode;
 
   constructor() { }
 
   ngOnInit() {
+    this.loadNode();
   }
 
   clickExpandCollapse() {
     this.node.expand = !this.node.expand;
   }
 
-  getNumber(num: number) {
-    return new Array(num);   
+  loadNode() {
+    this.node.lastNode = this.lastNode;
+    this.node.lastParentNode = this.lastParentNode;
+    console.log('el node ' + this.node.name + " te " + this.parents.length + " parents.");
   }
 
 }

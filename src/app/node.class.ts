@@ -7,4 +7,8 @@ export class Node {
     childs: Node[];
 
     expand: boolean = false;
+
+    lastNode: boolean;
+
+    lastParentNode: boolean;
 }
