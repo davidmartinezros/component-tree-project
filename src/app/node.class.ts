@@ -10,5 +10,5 @@ export class Node {
 
     lastNode: boolean;
 
-    lastParentNode: boolean;
+    parents: Node[];
 }

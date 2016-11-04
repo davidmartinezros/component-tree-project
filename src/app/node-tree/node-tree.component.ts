@@ -11,11 +11,9 @@ export class NodeTreeComponent implements OnInit {
 
   @Input() node: Node;
 
-  @Input() parents: Node[];
+  @Input() parent: Node;
 
   @Input() lastNode;
-
-  @Input() lastParentNode;
 
   constructor() { }
 
@@ -29,8 +27,22 @@ export class NodeTreeComponent implements OnInit {
 
   loadNode() {
     this.node.lastNode = this.lastNode;
-    this.node.lastParentNode = this.lastParentNode;
-    console.log('el node ' + this.node.name + " te " + this.parents.length + " parents.");
+    console.log("el node " + this.node.name + " te lastNode " + this.node.lastNode);
+    if(this.node.parents == null) {
+      this.node.parents = [];
+    }
+    if(this.parent != null) {
+      for(let p of this.parent.parents) {
+        if(!this.node.parents.filter(x => x.id === p.id)[0]) {
+          this.node.parents.push(p);
+        }
+      }
+      if(!this.node.parents.filter(x => x.id === this.parent.id)[0]) {
+        this.node.parents.push(this.parent);
+      }
+      console.log("afegim parent " + this.parent.name + " amnb lastNode " + this.parent.lastNode);
+    }
+    console.log('el node ' + this.node.name + " te " + this.node.parents.length + " parents.");
   }
 
 }

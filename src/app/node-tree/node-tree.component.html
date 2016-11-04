@@ -1,23 +1,25 @@
 <div id="{{ node.id }}">
-    <span *ngIf="parents.length > 0">
-        <span *ngFor="let p of parents">
-            <img *ngIf="!p.lastParentNode" src="../assets/line_continue.png"/>
-            <img *ngIf="p.lastParentNode" src="../assets/blank_node.png"/>
+    <span class="images">
+        <span *ngIf="node.parents.length > 0" class="images">
+            <span *ngFor="let p of node.parents" class="images">
+                <img *ngIf="!p.lastNode" src="../assets/line_continue.png"/>
+                <img *ngIf="p.lastNode" src="../assets/blank_node.png"/>
+            </span>
         </span>
+        
+        <img *ngIf="!node.lastNode" src="../assets/line_node_and_continue.png"/>
+        <img *ngIf="node.lastNode" src="../assets/line_node_and_end.png"/>
+        <img *ngIf="!node.sheet && node.expand" src="../assets/collapse_icon.png" (click)="clickExpandCollapse()"/>
+        <img *ngIf="!node.sheet && !node.expand" src="../assets/expand_icon.png" (click)="clickExpandCollapse()"/>
+        <img *ngIf="node.sheet" src="../assets/line_sheet.png" (click)="clickExpandCollapse()"/>
     </span>
-    
-    <img *ngIf="!node.lastNode" src="../assets/line_node_and_continue.png"/>
-    <img *ngIf="node.lastNode" src="../assets/line_node_and_end.png"/>
-    <img *ngIf="!node.sheet && node.expand" src="../assets/collapse_icon.png" (click)="clickExpandCollapse()"/>
-    <img *ngIf="!node.sheet && !node.expand" src="../assets/expand_icon.png" (click)="clickExpandCollapse()"/>
-    <img *ngIf="node.sheet" src="../assets/line_sheet.png" (click)="clickExpandCollapse()"/>
 
     <span><b>{{ node.name }}</b> el seu pare es: {{ node.idParent }}</span>
 </div>
 <div *ngIf="!node.sheet">
     <div *ngIf="node.expand">
         <div *ngFor="let child of node.childs; let lastNodeChild = last">
-            <app-node-tree [node]="child" [parents]="[node,parents]" [lastParentNode]="node.lastNode" [lastNode]="lastNodeChild"></app-node-tree>
+            <app-node-tree [node]="child" [parent]="node" [lastNode]="lastNodeChild"></app-node-tree>
         </div>
     </div>
 </div>
