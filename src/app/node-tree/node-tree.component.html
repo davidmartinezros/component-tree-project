@@ -17,6 +17,7 @@
     <div *ngIf="node.expand">
         <div *ngFor="let child of node.childs; let lastNodeChild = last">
             <app-node-tree [node]="child" [lastParentNode]="lastNode" [countParents]="countParents + 1" [lastNode]="lastNodeChild"></app-node-tree>
+            <!--app-node-tree [node]="child" [node.lastNode]="lastNodeChild" [parents]="[parents,node]"></app-node-tree-->
         </div>
     </div>
 </div>
