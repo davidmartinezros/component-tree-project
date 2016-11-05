@@ -1,0 +1,1 @@
+ng build --base-href http://davidmartinezros.com/Angular2/component-tree-project/ --prod --env=prod
