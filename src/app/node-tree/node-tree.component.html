@@ -1,7 +1,7 @@
-<div id="{{ node.id }}">
-    <span class="images">
-        <span *ngIf="node.parents.length > 0" class="images">
-            <span *ngFor="let p of node.parents" class="images">
+<div id="{{ node.id }}" class="node">
+    <span>
+        <span *ngIf="node.parents.length > 0">
+            <span *ngFor="let p of node.parents">
                 <img *ngIf="!p.lastNode" src="../assets/line_continue.png"/>
                 <img *ngIf="p.lastNode" src="../assets/blank_node.png"/>
             </span>
@@ -11,10 +11,10 @@
         <img *ngIf="node.lastNode" src="../assets/line_node_and_end.png"/>
         <img *ngIf="!node.sheet && node.expand" src="../assets/collapse_icon.png" (click)="clickExpandCollapse()"/>
         <img *ngIf="!node.sheet && !node.expand" src="../assets/expand_icon.png" (click)="clickExpandCollapse()"/>
-        <img *ngIf="node.sheet" src="../assets/line_sheet.png" (click)="clickExpandCollapse()"/>
+        <img *ngIf="node.sheet" src="../assets/line_sheet.png"/>
     </span>
 
-    <span><b>{{ node.name }}</b> el seu pare es: {{ node.idParent }}</span>
+    <div class="text"><b>{{ node.name }}</b> el seu pare es: {{ node.idParent }}</div>
 </div>
 <div *ngIf="!node.sheet">
     <div *ngIf="node.expand">

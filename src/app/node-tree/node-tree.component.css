@@ -1,16 +1,32 @@
-div {
-    background: #363ca1;
-    border-radius: 4px;
-    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.25);
-    will-change: transform;
+div.node {
+    width: fit-content;
     cursor: pointer;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
+    line-height: 13px;
+    width:100%;
 }
 
-.images {
+img {
     float: left;
-    display: block;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
+    line-height: 13px;
+}
+
+div.text {
+    display: inline-block;
+    line-height: 11px;
+    font-family: arial;
+    border: 1px solid lightgoldenrodyellow;
+    color:black;
+    background: darkgoldenrod;
+}
+
+div.text:hover {
+    border: 1px solid darkgoldenrod;
+    color:black;
+    background: lightgoldenrodyellow;
+}
+
+div.text:active {
+    border: 1px solid black;
+    color:white;
+    background: black;
 }
