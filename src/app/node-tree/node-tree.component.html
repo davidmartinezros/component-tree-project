@@ -2,16 +2,16 @@
     <span>
         <span *ngIf="node.parents.length > 0">
             <span *ngFor="let p of node.parents">
-                <img *ngIf="!p.lastNode" src="../assets/line_continue.png"/>
-                <img *ngIf="p.lastNode" src="../assets/blank_node.png"/>
+                <img *ngIf="!p.lastNode" src="./assets/line_continue.png"/>
+                <img *ngIf="p.lastNode" src="./assets/blank_node.png"/>
             </span>
         </span>
         
-        <img *ngIf="!node.lastNode" src="../assets/line_node_and_continue.png"/>
-        <img *ngIf="node.lastNode" src="../assets/line_node_and_end.png"/>
-        <img *ngIf="!node.sheet && node.expand" src="../assets/collapse_icon.png" (click)="clickExpandCollapse()"/>
-        <img *ngIf="!node.sheet && !node.expand" src="../assets/expand_icon.png" (click)="clickExpandCollapse()"/>
-        <img *ngIf="node.sheet" src="../assets/line_sheet.png"/>
+        <img *ngIf="!node.lastNode" src="./assets/line_node_and_continue.png"/>
+        <img *ngIf="node.lastNode" src="./assets/line_node_and_end.png"/>
+        <img *ngIf="!node.sheet && node.expand" src="./assets/collapse_icon.png" (click)="clickExpandCollapse()"/>
+        <img *ngIf="!node.sheet && !node.expand" src="./assets/expand_icon.png" (click)="clickExpandCollapse()"/>
+        <img *ngIf="node.sheet" src="./assets/line_sheet.png"/>
     </span>
 
     <div class="text"><b>{{ node.name }}</b> el seu pare es: {{ node.idParent }}</div>
