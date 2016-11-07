@@ -1,12 +1,3 @@
 <div *ngFor="let node of tree | async; let lastNode = last">
   <app-node-tree [node]="node" [parent]="" [lastNode]="lastNode"></app-node-tree>
-  
-  <!--
-      haure de fer algo aixi 
-      <app-node-tree [node]="node" [lastParentNode]="lastParentNode" [lastNode]="lastNode"></app-node-tree>
-      ngWhile(let (parent = getParent(node.idParent)).id != -1) {
-          pintarem una linia i continua, si no es last
-          pintarem una linia i fi, si es last
-      } 
-  -->
 </div>
