@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NodeTreeComponent } from './node-tree/node-tree.component';
 import { TreeComponent } from './tree/tree.component';
+import { LoadComponent } from './load/load.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NodeTreeComponent,
-    TreeComponent
+    TreeComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,

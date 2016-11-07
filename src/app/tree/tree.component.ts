@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ReturnsJsonArrayService } from '../returns-json-array.service';
-
 import { Node } from '../node.class';
+
+import { LoadComponent } from '../load/load.component';
 
 @Component({
   selector: 'app-tree',
   templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.css'],
-  providers: [ReturnsJsonArrayService]
+  styleUrls: ['./tree.component.css']
 })
-export class TreeComponent {
+export class TreeComponent implements OnInit {
   
   tree: Observable<Array<Node>>;
 
-  constructor(private service: ReturnsJsonArrayService) {
-    this.tree = service.getTree();
+  constructor() {
+    this.tree = LoadComponent.tree;
     console.log("AppComponent.data:" + this.tree);
+  }
+
+  ngOnInit() {
+
   }
 
 }
