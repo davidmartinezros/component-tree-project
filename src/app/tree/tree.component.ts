@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Node } from '../node.class';
@@ -12,10 +12,9 @@ import { LoadComponent } from '../load/load.component';
 })
 export class TreeComponent implements OnInit {
   
-  tree: Observable<Array<Node>>;
+  @Input() tree: Observable<Array<Node>>;
 
   constructor() {
-    this.tree = LoadComponent.tree;
     console.log("AppComponent.data:" + this.tree);
   }
 

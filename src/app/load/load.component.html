@@ -1,1 +1,3 @@
-Load the file <input type="file" name="file" [(ngModel)]="model"/>
+Load the file <input type="file" (change)="onChange($event)"/>
+
+<app-tree [(tree)]="tree"></app-tree>

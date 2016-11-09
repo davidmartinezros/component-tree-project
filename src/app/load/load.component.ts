@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Node } from '../node.class';
@@ -13,13 +13,15 @@ import { ReturnsJsonArrayService } from '../returns-json-array.service';
 })
 export class LoadComponent implements OnInit {
 
-  model: any;
+  //model: any;
 
-  static tree: Observable<Array<Node>>;
+  tree: Observable<Array<Node>>;
+
+  @Output() notify: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private service: ReturnsJsonArrayService) {
     this.loadFile();
-    console.log("AppComponent.data:" + LoadComponent.tree);
+    console.log("AppComponent.data:" + this.tree);
   }
 
   ngOnInit() {
@@ -27,10 +29,27 @@ export class LoadComponent implements OnInit {
   }
 
   loadFile() {
-    if(this.model != null) {
-      LoadComponent.tree = this.service.getTreeFromFile(this.model);
+    this.tree = this.service.getTree('./data/tree.json');
+  }
+
+  onChange(event) {
+    console.log('event:' + event);
+    var file: File = event.srcElement.files[0];
+    var url;
+    console.log('file:' + file);
+    console.log('file.name:' + file.name);
+    if(file != null) {
+      url = URL.createObjectURL(file);
+    } else {
+      url = './data/tree.json';
     }
-    LoadComponent.tree = this.service.getTree();
+    console.log('url:' + url);
+    if(url != null) {
+      this.tree = this.service.getTree(url);
+    }
+    console.log('enviem');
+    this.notify.emit(this.tree);
+    console.log('fi onChange');
   }
 
 }
