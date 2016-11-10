@@ -1,3 +1,5 @@
-<div *ngFor="let node of tree | async; let lastNode = last">
-  <app-node-tree [node]="node" [parent]="" [lastNode]="lastNode"></app-node-tree>
+<div class="parent"> 
+  <div *ngFor="let node of tree | async; let lastNode = last">
+    <app-node-tree [node]="node" [parent]="" [lastNode]="lastNode"></app-node-tree>
+  </div>
 </div>

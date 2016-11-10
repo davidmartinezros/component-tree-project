@@ -1,28 +1,27 @@
 div.node {
     width: fit-content;
     cursor: pointer;
-    line-height: 13px;
-    width:100%;
+    line-height: 17px;
 }
 
 img {
     float: left;
-    line-height: 13px;
+    line-height: 17px;
 }
 
 div.text {
     display: inline-block;
-    line-height: 11px;
+    line-height: 15px;
     font-family: arial;
     border: 1px solid lightgoldenrodyellow;
     color:black;
-    background: darkgoldenrod;
+    background: lightgoldenrodyellow;
 }
 
 div.text:hover {
     border: 1px solid darkgoldenrod;
     color:black;
-    background: lightgoldenrodyellow;
+    background: darkgoldenrod;
 }
 
 div.text:active {

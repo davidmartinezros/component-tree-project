@@ -1,0 +1,10 @@
+div.parent {
+    border: 1px solid darkgoldenrod;
+    color:black;
+    background: lightgoldenrodyellow;
+    width:fit-content;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+}

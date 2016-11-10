@@ -38,6 +38,7 @@ export class LoadComponent implements OnInit {
     var url;
     console.log('file:' + file);
     console.log('file.name:' + file.name);
+    console.log('file.type:' + file.type);
     if(file != null) {
       url = URL.createObjectURL(file);
     } else {
