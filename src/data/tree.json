@@ -2,151 +2,107 @@
     {
         "id": 1,
         "name": "Node 1",
-        "idParent": -1,
-        "sheet": false,
         "childs":
         [
             {
                 "id": 11,
-                "name": "Node 1.1",
-                "idParent": 1,
-                "sheet": true
+                "name": "Node 1.1"
             },
             {
                 "id": 12,
                 "name": "Node 1.2",
-                "idParent": 1,
-                "sheet": false,
                 "childs":
                 [
                     {
                         "id": 121,
-                        "name": "Node 1.2.1",
-                        "idParent": 12,
-                        "sheet": true
+                        "name": "Node 1.2.1"
                     }
                 ]
             },
             {
                 "id": 13,
-                "name": "Node 1.3",
-                "idParent": 1,
-                "sheet": true
+                "name": "Node 1.3"
             }
         ]
     },
     {
         "id": 2,
         "name": "Node 2",
-        "idParent": -1,
-        "sheet": false,
         "childs":
         [
             {
                 "id": 21,
-                "name": "Node 2.1",
-                "idParent": 2,
-                "sheet": true
+                "name": "Node 2.1"
             },
             {
                 "id": 22,
                 "name": "Node 2.2",
-                "idParent": 2,
-                "sheet": false,
                 "childs":
                 [
                     {
                         "id": 221,
-                        "name": "Node 2.2.1",
-                        "idParent": 22,
-                        "sheet": true
+                        "name": "Node 2.2.1"
                     }
                 ]
             },
             {
                 "id": 23,
-                "name": "Node 2.3",
-                "idParent": 2,
-                "sheet": true
+                "name": "Node 2.3"
             },
             {
                 "id": 24,
-                "name": "Node 2.4",
-                "idParent": 2,
-                "sheet": true
+                "name": "Node 2.4"
             },
             {
                 "id": 25,
-                "name": "Node 2.5",
-                "idParent": 2,
-                "sheet": true
+                "name": "Node 2.5"
             }
         ]
     },
     {
         "id": 3,
         "name": "Node 3",
-        "idParent": -1,
-        "sheet": false,
         "childs":
         [
             {
                 "id": 31,
-                "name": "Node 3.1",
-                "idParent": 3,
-                "sheet": true
+                "name": "Node 3.1"
             },
             {
                 "id": 32,
                 "name": "Node 3.2",
-                "idParent": 3,
-                "sheet": false,
                 "childs":
                 [
                     {
                         "id": 321,
-                        "name": "Node 3.2.1",
-                        "idParent": 32,
-                        "sheet": true
+                        "name": "Node 3.2.1"
                     }
                 ]
             },
             {
                 "id": 33,
-                "name": "Node 3.3",
-                "idParent": 3,
-                "sheet": true
+                "name": "Node 3.3"
             },
             {
                 "id": 34,
                 "name": "Node 3.4",
-                "idParent": 3,
-                "sheet": false,
                 "childs":
                 [
                     {
                         "id": 341,
-                        "name": "Node 3.4.1",
-                        "idParent": 34,
-                        "sheet": true
+                        "name": "Node 3.4.1"
                     },
                     {
                         "id": 342,
-                        "name": "Node 3.4.2",
-                        "idParent": 34,
-                        "sheet": true
+                        "name": "Node 3.4.2"
                     },
                     {
                         "id": 343,
-                        "name": "Node 3.4.3",
-                        "idParent": 34,
-                        "sheet": true
+                        "name": "Node 3.4.3"
                     },
                     {
                         "id": 344,
-                        "name": "Node 3.4.4",
-                        "idParent": 34,
-                        "sheet": true
+                        "name": "Node 3.4.4"
                     }
                 ]
             }

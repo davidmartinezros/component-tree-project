@@ -1,8 +1,6 @@
 export class Node {
     id: number;
     name: string;
-    idParent: number;
-    sheet: boolean;
 
     childs: Node[];
 
@@ -10,5 +8,6 @@ export class Node {
 
     lastNode: boolean;
 
-    parents: Node[];
+    ancestors: Node[];
+
 }

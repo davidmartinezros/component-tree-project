@@ -1,7 +1,7 @@
 <div id="{{ node.id }}" class="node">
     <span>
-        <span *ngIf="node.parents.length > 0">
-            <span *ngFor="let p of node.parents">
+        <span *ngIf="node.ancestors.length > 0">
+            <span *ngFor="let p of node.ancestors">
                 <img *ngIf="!p.lastNode" src="./assets/line_continue.png"/>
                 <img *ngIf="p.lastNode" src="./assets/blank_node.png"/>
             </span>
@@ -9,14 +9,14 @@
         
         <img *ngIf="!node.lastNode" src="./assets/line_node_and_continue.png"/>
         <img *ngIf="node.lastNode" src="./assets/line_node_and_end.png"/>
-        <img *ngIf="!node.sheet && node.expand" src="./assets/collapse_icon.png" (click)="clickExpandCollapse()"/>
-        <img *ngIf="!node.sheet && !node.expand" src="./assets/expand_icon.png" (click)="clickExpandCollapse()"/>
-        <img *ngIf="node.sheet" src="./assets/line_sheet.png"/>
+        <img *ngIf="hasLeaf() && node.expand" src="./assets/collapse_icon.png" (click)="clickExpandCollapse()"/>
+        <img *ngIf="hasLeaf() && !node.expand" src="./assets/expand_icon.png" (click)="clickExpandCollapse()"/>
+        <img *ngIf="!hasLeaf()" src="./assets/line_sheet.png"/>
     </span>
 
-    <div class="text"><b>{{ node.name }}</b> el seu pare es: {{ node.idParent }}</div>
+    <div class="text"><b>{{ node.name }}</b> el seu pare es: {{ getParentId() }}</div>
 </div>
-<div *ngIf="!node.sheet">
+<div *ngIf="hasLeaf()">
     <div *ngIf="node.expand">
         <div *ngFor="let child of node.childs; let lastNodeChild = last">
             <app-node-tree [node]="child" [parent]="node" [lastNode]="lastNodeChild"></app-node-tree>
