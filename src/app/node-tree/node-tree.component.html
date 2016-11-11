@@ -12,14 +12,21 @@
         <img *ngIf="hasLeaf() && node.expand" src="./assets/collapse_icon.png" (click)="clickExpandCollapse()"/>
         <img *ngIf="hasLeaf() && !node.expand" src="./assets/expand_icon.png" (click)="clickExpandCollapse()"/>
         <img *ngIf="!hasLeaf()" src="./assets/line_sheet.png"/>
-    </span>
+    </span>   
 
-    <div class="text"><b>{{ node.name }}</b> el seu pare es: {{ getParentId() }}</div>
+    <div class="text" title="His parent is: {{ getParentName() }} with id: {{ getParentId() }}">
+        <b>{{ node.name }}</b>
+    </div>
+    <img *ngIf="!node.firstNode" src="./assets/up.png" (click)="upNode()"/>
+    <img *ngIf="!node.lastNode" src="./assets/down.png" (click)="downNode()"/>
+    <div class="description">
+        {{ node.description }}
+    </div>
 </div>
 <div *ngIf="hasLeaf()">
     <div *ngIf="node.expand">
-        <div *ngFor="let child of node.childs; let lastNodeChild = last">
-            <app-node-tree [node]="child" [parent]="node" [lastNode]="lastNodeChild"></app-node-tree>
+        <div *ngFor="let child of node.childs; let firstNodeChild = first; let lastNodeChild = last">
+            <app-node-tree [node]="child" [parent]="node" [firstNode]="firstNodeChild" [lastNode]="lastNodeChild"></app-node-tree>
         </div>
     </div>
 </div>

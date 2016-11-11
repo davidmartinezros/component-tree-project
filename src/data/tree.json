@@ -2,107 +2,129 @@
     {
         "id": 1,
         "name": "Node 1",
+        "description": "Desc Node 1",
         "childs":
         [
             {
                 "id": 11,
-                "name": "Node 1.1"
+                "name": "Node 1.1",
+                "description": "Desc Node 1.1"
             },
             {
                 "id": 12,
                 "name": "Node 1.2",
+                "description": "Desc Node 1.2",
                 "childs":
                 [
                     {
                         "id": 121,
-                        "name": "Node 1.2.1"
+                        "name": "Node 1.2.1",
+                        "description": "Desc Node 1.2.1"
                     }
                 ]
             },
             {
                 "id": 13,
-                "name": "Node 1.3"
+                "name": "Node 1.3",
+                "description": "Desc Node 1.3"
             }
         ]
     },
     {
         "id": 2,
         "name": "Node 2",
+        "description": "Desc Node 2",
         "childs":
         [
             {
                 "id": 21,
-                "name": "Node 2.1"
+                "name": "Node 2.1",
+                "description": "Desc Node 2.1"
             },
             {
                 "id": 22,
                 "name": "Node 2.2",
+                "description": "Desc Node 2.2",
                 "childs":
                 [
                     {
                         "id": 221,
-                        "name": "Node 2.2.1"
+                        "name": "Node 2.2.1",
+                        "description": "Desc Node 2.2.1"
                     }
                 ]
             },
             {
                 "id": 23,
-                "name": "Node 2.3"
+                "name": "Node 2.3",
+                "description": "Desc Node 2.3"
             },
             {
                 "id": 24,
-                "name": "Node 2.4"
+                "name": "Node 2.4",
+                "description": "Desc Node 2.4"
             },
             {
                 "id": 25,
-                "name": "Node 2.5"
+                "name": "Node 2.5",
+                "description": "Desc Node 2.5"
             }
         ]
     },
     {
         "id": 3,
         "name": "Node 3",
+        "description": "Desc Node 3",
         "childs":
         [
             {
                 "id": 31,
-                "name": "Node 3.1"
+                "name": "Node 3.1",
+                "description": "Desc Node 3.1"
             },
             {
                 "id": 32,
                 "name": "Node 3.2",
+                "description": "Desc Node 3.2",
                 "childs":
                 [
                     {
                         "id": 321,
-                        "name": "Node 3.2.1"
+                        "name": "Node 3.2.1",
+                        "description": "Desc Node 3.2.1"
                     }
                 ]
             },
             {
                 "id": 33,
-                "name": "Node 3.3"
+                "name": "Node 3.3",
+                "description": "Desc Node 3.3"
             },
             {
                 "id": 34,
                 "name": "Node 3.4",
+                "description": "Desc Node 3.4",
                 "childs":
                 [
                     {
                         "id": 341,
-                        "name": "Node 3.4.1"
+                        "name": "Node 3.4.1",
+                        "description": "Desc Node 3.4.1"
                     },
                     {
                         "id": 342,
-                        "name": "Node 3.4.2"
+                        "name": "Node 3.4.2",
+                        "description": "Desc Node 3.4.2"
                     },
                     {
                         "id": 343,
-                        "name": "Node 3.4.3"
+                        "name": "Node 3.4.3",
+                        "description": "Desc Node 3.4.3"
                     },
                     {
                         "id": 344,
-                        "name": "Node 3.4.4"
+                        "name": "Node 3.4.4",
+                        "description": "Desc Node 3.4.4"
                     }
                 ]
             }

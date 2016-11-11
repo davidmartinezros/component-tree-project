@@ -18,6 +18,12 @@ div.text {
     background: lightgoldenrodyellow;
 }
 
+div.description {
+    display: inline-block;
+    line-height: 15px;
+    font-family: arial;
+}
+
 div.text:hover {
     border: 1px solid darkgoldenrod;
     color:black;
