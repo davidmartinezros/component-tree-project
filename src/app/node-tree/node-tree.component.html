@@ -17,8 +17,9 @@
     <div class="text" title="His parent is: {{ getParentName() }} with id: {{ getParentId() }}">
         <b>{{ node.name }}</b>
     </div>
-    <img *ngIf="!node.firstNode" src="./assets/up.png" (click)="upNode()"/>
-    <img *ngIf="!node.lastNode" src="./assets/down.png" (click)="downNode()"/>
+    <img *ngIf="hasParent()" src="./assets/left.png" title="Move to parent node" (click)="moveToParent()"/>
+    <img *ngIf="!node.firstNode" src="./assets/up.png" title="Swap up node" (click)="upNode()"/>
+    <img *ngIf="!node.lastNode" src="./assets/down.png" title="Swap down node" (click)="downNode()"/>
     <div class="description">
         {{ node.description }}
     </div>

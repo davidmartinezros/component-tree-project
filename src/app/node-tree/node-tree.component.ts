@@ -31,6 +31,10 @@ export class NodeTreeComponent implements OnInit {
     return ((this.node.childs != null) && (this.node.childs.length > 0));
   }
 
+  hasParent(): boolean {
+    return ((this.node.ancestors != null) && (this.node.ancestors.length > 1));
+  }
+
   getParentId(): number {
     if(this.node.ancestors != null && this.node.ancestors.length > 0) {
       return this.node.ancestors[this.node.ancestors.length-1].id;
@@ -43,7 +47,7 @@ export class NodeTreeComponent implements OnInit {
     if(this.node.ancestors != null && this.node.ancestors.length > 0) {
       return this.node.ancestors[this.node.ancestors.length-1].name;
     } else {
-      return "root";
+      return "rootParent";
     }
   }
 
@@ -161,6 +165,84 @@ export class NodeTreeComponent implements OnInit {
       parentTree.childs[nodeIndex] = siblingNode;
 
     }
+  }
+
+  moveToParent() {
+    console.log('nodeToParent');
+    
+    let grandParentTree: Node;
+    let parentTree: Node;
+
+    if(this.node.ancestors != null && this.node.ancestors.length > 0) {
+      parentTree = this.node.ancestors[this.node.ancestors.length-1];
+    }
+
+    if(this.node.ancestors != null && this.node.ancestors.length > 1) {
+      grandParentTree = this.node.ancestors[this.node.ancestors.length-2];
+    }
+
+    if(parentTree != null && grandParentTree != null) {
+      const nodeIndex = parentTree.childs.indexOf(this.node);
+      const siblingIndex = grandParentTree.childs.indexOf(this.parent) + 1;
+
+      console.log('nodeIndex:' + nodeIndex);
+      console.log('siblingIndex:' + siblingIndex);
+      console.log('parentTree.childs.length:' + parentTree.childs.length);
+
+      let firstNode = false;
+      let lastNode = false;
+      if(nodeIndex === 0) {
+        firstNode = true;
+      }
+      if(nodeIndex === parentTree.childs.length-1) {
+        lastNode = true;
+      }
+
+      let firstNodeSibling = false;
+      let lastNodeSibling = false;
+      if(siblingIndex === 0) {
+        firstNodeSibling = true;
+      }
+      if(siblingIndex === parentTree.childs.length-1) {
+        lastNodeSibling = true;
+      }
+      
+      this.node.firstNode = firstNodeSibling;
+      this.node.lastNode = lastNodeSibling;
+
+      let ancestorsSecondLevel: Node[] = grandParentTree.childs;
+      let childsSecondLevel: Node[] = [];
+      for(let ancestor of ancestorsSecondLevel) {
+        childsSecondLevel.push(ancestor);
+        if(ancestor === parentTree) {
+          ancestor.firstNode = firstNode;
+          ancestor.lastNode = lastNode;
+          childsSecondLevel.push(this.node);
+        }
+      }
+      grandParentTree.childs = childsSecondLevel;
+
+      let ancestorsFirstLevel: Node[] = parentTree.childs;
+      let childsFirstLevel: Node[] = [];
+      for(let ancestor of ancestorsFirstLevel) {
+        if(!(ancestor === this.node)) {
+          childsFirstLevel.push(ancestor);
+        }
+      }
+      parentTree.childs = childsFirstLevel;
+
+      let ancestors: Node[] = [];
+      for(let ancestor of this.node.ancestors) {
+        if(!(ancestor === parentTree)) {
+          ancestors.push(ancestor);
+        }
+      }
+      this.node.ancestors = ancestors;
+
+      //this.node.removeParentInChilds(parentTree);
+
+    }
+
   }
 
 }
