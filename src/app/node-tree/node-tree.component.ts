@@ -90,34 +90,11 @@ export class NodeTreeComponent implements OnInit {
       console.log('siblingIndex:' + siblingIndex);
       console.log('this.node.ancestors.length:' + this.node.ancestors.length);
 
-      let firstNode = false;
-      let lastNode = false;
-      if(nodeIndex === 0) {
-        firstNode = true;
-      }
-      if(nodeIndex === parentTree.childs.length-1) {
-        lastNode = true;
-      }
-
-      let firstNodeSibling = false;
-      let lastNodeSibling = false;
-      if(siblingIndex === 0) {
-        firstNodeSibling = true;
-      }
-      if(siblingIndex === parentTree.childs.length-1) {
-        lastNodeSibling = true;
-      }
-      
-      this.node.lastNode = lastNodeSibling;
-      this.node.firstNode = firstNodeSibling;
-      siblingNode.lastNode = lastNode;
-      siblingNode.firstNode = firstNode;
-
       parentTree.childs[siblingIndex] = this.node;
       parentTree.childs[nodeIndex] = siblingNode;
 
+      this.reloadFirstAndLastNode(parentTree, parentTree.firstNode, parentTree.lastNode);
     }
-    
   }
 
   downNode() {
@@ -138,32 +115,10 @@ export class NodeTreeComponent implements OnInit {
       console.log('siblingIndex:' + siblingIndex);
       console.log('parentTree.childs.length:' + parentTree.childs.length);
 
-      let firstNode = false;
-      let lastNode = false;
-      if(nodeIndex === 0) {
-        firstNode = true;
-      }
-      if(nodeIndex === parentTree.childs.length-1) {
-        lastNode = true;
-      }
-
-      let firstNodeSibling = false;
-      let lastNodeSibling = false;
-      if(siblingIndex === 0) {
-        firstNodeSibling = true;
-      }
-      if(siblingIndex === parentTree.childs.length-1) {
-        lastNodeSibling = true;
-      }
-      
-      this.node.lastNode = lastNodeSibling;
-      this.node.firstNode = firstNodeSibling;
-      siblingNode.lastNode = lastNode;
-      siblingNode.firstNode = firstNode;
-
       parentTree.childs[siblingIndex] = this.node;
       parentTree.childs[nodeIndex] = siblingNode;
 
+      this.reloadFirstAndLastNode(parentTree, parentTree.firstNode, parentTree.lastNode);
     }
   }
 
@@ -182,41 +137,12 @@ export class NodeTreeComponent implements OnInit {
     }
 
     if(parentTree != null && grandParentTree != null) {
-      const nodeIndex = parentTree.childs.indexOf(this.node);
-      const siblingIndex = grandParentTree.childs.indexOf(this.parent) + 1;
-
-      console.log('nodeIndex:' + nodeIndex);
-      console.log('siblingIndex:' + siblingIndex);
-      console.log('parentTree.childs.length:' + parentTree.childs.length);
-
-      let firstNode = false;
-      let lastNode = false;
-      if(nodeIndex === 0) {
-        firstNode = true;
-      }
-      if(nodeIndex === parentTree.childs.length-1) {
-        lastNode = true;
-      }
-
-      let firstNodeSibling = false;
-      let lastNodeSibling = false;
-      if(siblingIndex === 0) {
-        firstNodeSibling = true;
-      }
-      if(siblingIndex === parentTree.childs.length-1) {
-        lastNodeSibling = true;
-      }
-      
-      this.node.firstNode = firstNodeSibling;
-      this.node.lastNode = lastNodeSibling;
 
       let ancestorsSecondLevel: Node[] = grandParentTree.childs;
       let childsSecondLevel: Node[] = [];
       for(let ancestor of ancestorsSecondLevel) {
         childsSecondLevel.push(ancestor);
         if(ancestor === parentTree) {
-          ancestor.firstNode = firstNode;
-          ancestor.lastNode = lastNode;
           childsSecondLevel.push(this.node);
         }
       }
@@ -239,10 +165,20 @@ export class NodeTreeComponent implements OnInit {
       }
       this.node.ancestors = ancestors;
 
-      //this.node.removeParentInChilds(parentTree);
-
+      this.reloadFirstAndLastNode(grandParentTree, grandParentTree.firstNode, grandParentTree.lastNode);
     }
+  }
 
+  reloadFirstAndLastNode(node: Node, firstNode: boolean, lastNode: boolean) {
+      let i = 0;
+      node.firstNode = firstNode;
+      node.lastNode = lastNode;
+      if(node.childs != null && node.childs.length > 0) {
+        for(let child of node.childs) {
+          this.reloadFirstAndLastNode(child, i === 0, i === node.childs.length-1);
+          i++;
+        }
+      }
   }
 
 }
