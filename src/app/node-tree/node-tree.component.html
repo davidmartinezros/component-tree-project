@@ -26,7 +26,7 @@
 </div>
 <div *ngIf="hasLeaf()">
     <div *ngIf="node.expand">
-        <div *ngFor="let child of node.childs; let firstNodeChild = first; let lastNodeChild = last">
+        <div *ngFor="let child of node.children; let firstNodeChild = first; let lastNodeChild = last">
             <app-node-tree [node]="child" [parent]="node" [firstNode]="firstNodeChild" [lastNode]="lastNodeChild"></app-node-tree>
         </div>
     </div>

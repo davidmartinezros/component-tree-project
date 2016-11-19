@@ -29,7 +29,7 @@ export class LoadComponent implements OnInit {
   }
 
   loadFile() {
-    this.tree = this.service.getTree('./data/tree.json');
+    this.tree = this.service.getTree('./assets/data/tree.json');
   }
 
   onChange(event) {
@@ -42,7 +42,7 @@ export class LoadComponent implements OnInit {
     if(file != null) {
       url = URL.createObjectURL(file);
     } else {
-      url = './data/tree.json';
+      url = './assets/data/tree.json';
     }
     console.log('url:' + url);
     if(url != null) {

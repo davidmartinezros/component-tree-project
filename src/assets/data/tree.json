@@ -3,13 +3,13 @@
         "id": 0,
         "name": "root",
         "description": "Desc Root",
-        "childs":
+        "children":
         [
             {
                 "id": 1,
                 "name": "Node 1",
                 "description": "Desc Node 1",
-                "childs":
+                "children":
                 [
                     {
                         "id": 11,
@@ -20,7 +20,7 @@
                         "id": 12,
                         "name": "Node 1.2",
                         "description": "Desc Node 1.2",
-                        "childs":
+                        "children":
                         [
                             {
                                 "id": 121,
@@ -40,7 +40,7 @@
                 "id": 2,
                 "name": "Node 2",
                 "description": "Desc Node 2",
-                "childs":
+                "children":
                 [
                     {
                         "id": 21,
@@ -51,7 +51,7 @@
                         "id": 22,
                         "name": "Node 2.2",
                         "description": "Desc Node 2.2",
-                        "childs":
+                        "children":
                         [
                             {
                                 "id": 221,
@@ -81,7 +81,7 @@
                 "id": 3,
                 "name": "Node 3",
                 "description": "Desc Node 3",
-                "childs":
+                "children":
                 [
                     {
                         "id": 31,
@@ -92,7 +92,7 @@
                         "id": 32,
                         "name": "Node 3.2",
                         "description": "Desc Node 3.2",
-                        "childs":
+                        "children":
                         [
                             {
                                 "id": 321,
@@ -110,7 +110,7 @@
                         "id": 34,
                         "name": "Node 3.4",
                         "description": "Desc Node 3.4",
-                        "childs":
+                        "children":
                         [
                             {
                                 "id": 341,
